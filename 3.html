@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Swiper demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.css">
+
+    <!-- Demo styles -->
+    <style>
+        html,
+        body {
+            position: relative;
+            height: 303px;
+        }
+
+        body {
+            font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+            font-size: 14px;
+            margin: 200px;
+            padding: 0;
+        }
+
+        .swiper {
+            width: 1235px;
+            height: 303px;
+        }
+
+        .swiper-slide {
+            border-radius: 10px;
+            text-align: center;
+            font-size: 18px;
+            background: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .swiper-slide img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        body {
+            background: #000;
+            color: #000;
+        }
+
+        .swiper {
+            width: 1235px;
+            height: 300px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .swiper-slide {
+            background-size: cover;
+            background-position: center;
+        }
+
+        .mySwiper2 {
+            height: 303px;
+            width: 1235px;
+        }
+
+        .mySwiper {
+            box-sizing: border-box;
+            margin-top: -80px;
+            margin-left: 620px;
+            width: 600px;
+            height: 80px;
+        }
+
+        .mySwiper .swiper-slide {
+            width: 109px;
+            height: 69px;
+            opacity: 0.5;
+        }
+
+        .mySwiper .swiper-slide-thumb-active {
+            opacity: 1;
+        }
+
+        .swiper-slide img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .swiper-wrapper img:hover {
+            border: 2px solid skyblue;
+        }
+
+        .box {
+            border-radius: 10px;
+            padding-top: 38px;
+            width: 1264px;
+            height: 342px;
+            background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABPAAAAEkCAYAAAChVM+dAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTQ1IDc5LjE2MzQ5OSwgMjAxOC8wOC8xMy0xNjo0MDoyMiAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTkgKFdpbmRvd3MpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOkM3MzhCQzBDRDkyODExRTk5MUQ1QzBDNDg0MTkxMTIwIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOkM3MzhCQzBERDkyODExRTk5MUQ1QzBDNDg0MTkxMTIwIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6QzczOEJDMEFEOTI4MTFFOTkxRDVDMEM0ODQxOTExMjAiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6QzczOEJDMEJEOTI4MTFFOTkxRDVDMEM0ODQxOTExMjAiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz7blfIPAAAJL0lEQVR42uzdsWoUYRiG0d0YokEUJbWkE6y9/xuwsRLLgAjBRjAmUdRs/MaM1zBPcQ68/LDT/eXD7O7+/v7+7Q4AAAAA2NJhdjO7nn2Z3f1/cDx7434AAAAAYFNLwPs5u51dzi5mV8uDvTfwAAAAAGBzR7Mns7P1XCLe+9nV8gbeM/cDAAAAAJu63z28hbeEuxezV7Nfs3fH7gYAAAAANrefPZqdzr6v5/ns85G7AQAAAICUk9m33cP/V5wLeAAAAADQc1jPMwEPAAAAAHr26/lUwAMAAACAriMBDwAAAADCBDwAAAAACBPwAAAAACBMwAMAAACAMAEPAAAAAMIEPAAAAAAIE/AAAAAAIEzAAwAAAIAwAQ8AAAAAwgQ8AAAAAAgT8AAAAAAgTMADAAAAgDABDwAAAADCBDwAAAAACBPwAAAAACBMwAMAAACAMAEPAAAAAMIEPAAAAAAIE/AAAAAAIEzAAwAAAIAwAQ8AAAAAwgQ8AAAAAAgT8AAAAAAgTMADAAAAgDABDwAAAADCBDwAAAAACBPwAAAAACBMwAMAAACAMAEPAAAAAMIEPAAAAAAIE/AAAAAAIEzAAwAAAIAwAQ8AAAAAwgQ8AAAAAAgT8AAAAAAgTMADAAAAgDABDwAAAADCBDwAAAAACBPwAAAAACBMwAMAAACAMAEPAAAAAMIEPAAAAAAIE/AAAAAAIEzAAwAAAIAwAQ8AAAAAwgQ8AAAAAAgT8AAAAAAgTMADAAAAgDABDwAAAADCBDwAAAAACBPwAAAAACBMwAMAAACAMAEPAAAAAMIEPAAAAAAIE/AAAAAAIEzAAwAAAIAwAQ8AAAAAwgQ8AAAAAAgT8AAAAAAgTMADAAAAgDABDwAAAADCBDwAAAAACBPwAAAAACBMwAMAAACAMAEPAAAAAMIEPAAAAAAIE/AAAAAAIEzAAwAAAIAwAQ8AAAAAwgQ8AAAAAAgT8AAAAAAgTMADAAAAgDABDwAAAADCBDwAAAAACBPwAAAAACBMwAMAAACAMAEPAAAAAMIEPAAAAAAIE/AAAAAAIEzAAwAAAIAwAQ8AAAAAwgQ8AAAAAAgT8AAAAAAgTMADAAAAgDABDwAAAADCBDwAAAAACBPwAAAAACBMwAMAAACAMAEPAAAAAMIEPAAAAAAIE/AAAAAAIEzAAwAAAIAwAQ8AAAAAwgQ8AAAAAAgT8AAAAAAgTMADAAAAgDABDwAAAADCBDwAAAAACBPwAAAAACBMwAMAAACAMAEPAAAAAMIEPAAAAAAIE/AAAAAAIEzAAwAAAIAwAQ8AAAAAwgQ8AAAAAAgT8AAAAAAgTMADAAAAgDABDwAAAADCBDwAAAAACBPwAAAAACBMwAMAAACAMAEPAAAAAMIEPAAAAAAIE/AAAAAAIEzAAwAAAIAwAQ8AAAAAwgQ8AAAAAAgT8AAAAAAgTMADAAAAgDABDwAAAADCBDwAAAAACBPwAAAAACBMwAMAAACAMAEPAAAAAMIEPAAAAAAIE/AAAAAAIEzAAwAAAIAwAQ8AAAAAwgQ8AAAAAAgT8AAAAAAgTMADAAAAgDABDwAAAADCBDwAAAAACBPwAAAAACBMwAMAAACAMAEPAAAAAMIEPAAAAAAIE/AAAAAAIEzAAwAAAIAwAQ8AAAAAwgQ8AAAAAAgT8AAAAAAgTMADAAAAgDABDwAAAADCBDwAAAAACBPwAAAAACBMwAMAAACAMAEPAAAAAMIEPAAAAAAIE/AAAAAAIEzAAwAAAIAwAQ8AAAAAwgQ8AAAAAAgT8AAAAAAgTMADAAAAgDABDwAAAADCBDwAAAAACBPwAAAAACBMwAMAAACAMAEPAAAAAMIEPAAAAAAIE/AAAAAAIEzAAwAAAIAwAQ8AAAAAwgQ8AAAAAAgT8AAAAAAgTMADAAAAgDABDwAAAADCBDwAAAAACBPwAAAAACBMwAMAAACAMAEPAAAAAMIEPAAAAAAIE/AAAAAAIEzAAwAAAIAwAQ8AAAAAwgQ8AAAAAAgT8AAAAAAgTMADAAAAgDABDwAAAADCBDwAAAAACBPwAAAAACBMwAMAAACAMAEPAAAAAMIEPAAAAAAIE/AAAAAAIEzAAwAAAIAwAQ8AAAAAwgQ8AAAAAAgT8AAAAAAgTMADAAAAgDABDwAAAADCBDwAAAAACBPwAAAAACBMwAMAAACAMAEPAAAAAMIEPAAAAAAIE/AAAAAAIEzAAwAAAIAwAQ8AAAAAwgQ8AAAAAAgT8AAAAAAgTMADAAAAgDABDwAAAADCBDwAAAAACBPwAAAAACBMwAMAAACAMAEPAAAAAMIEPAAAAAAIE/AAAAAAIEzAAwAAAIAwAQ8AAAAAwgQ8AAAAAAgT8AAAAAAgTMADAAAAgDABDwAAAADCBDwAAAAACBPwAAAAACBMwAMAAACAMAEPAAAAAMIEPAAAAAAIE/AAAAAAIEzAAwAAAIAwAQ8AAAAAwgQ8AAAAAAgT8AAAAAAgTMADAAAAgDABDwAAAADCBDwAAAAACBPwAAAAACBMwAMAAACAMAEPAAAAAMIEPAAAAAAIE/AAAAAAIEzAAwAAAIAwAQ8AAAAAwgQ8AAAAAAgT8AAAAAAgTMADAAAAgDABDwAAAADCBDwAAAAACBPwAAAAACBMwAMAAACAMAEPAAAAAMIEPAAAAAAIE/AAAAAAIEzAAwAAAIAwAQ8AAAAAwgQ8AAAAAAgT8AAAAAAgTMADAAAAgDABDwAAAADCBDwAAAAACBPwAAAAACBMwAMAAACAMAEPAAAAAMIEPAAAAAAIE/AAAAAAIEzAAwAAAIAwAQ8AAAAAwgQ8AAAAAAgT8AAAAAAgTMADAAAAgDABDwAAAADCBDwAAAAACBPwAAAAACBMwAMAAACAMAEPAAAAAMIEPAAAAAAIE/AAAAAAIEzAAwAAAIAwAQ8AAAAAwgQ8AAAAAAgT8AAAAAAgTMADAAAAgJ79eh4EPAAAAADoOV3PGwEPAAAAAHqer+dXAQ8AAAAAWs5mj2e/ZxfH7gMAAAAANrf85t3ytdmXs5PdQ7z7NLtcAt5r9wMAAAAAm7ub/Zndzi5nH5bPjtcPAAAAAIDtHGY/1i3x7mJ2tTxYAt5H9wMAAAAAm1oC3s3sevZl9/A23j9/BRgAO1g5IcXzD3kAAAAASUVORK5CYII=) no-repeat;
+            background-size: 100% 100%;
+            
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Swiper -->
+
+    <div class="box">
+        <div style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff" class="swiper mySwiper2">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <img
+                        src="https://webstatic.mihoyo.com/upload/contentweb/2023/03/08/3b96c6c4f3b4d265f2ba64e053753ce6_4749531332506649085.png" />
+                </div>
+                <div class="swiper-slide">
+                    <img
+                        src="https://webstatic.mihoyo.com/upload/contentweb/2022/08/12/e1711495a7b803711e0fa1907d665551_7518678854448681603.png" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="https://uploadstatic.mihoyo.com/contentweb/20220121/2022012116375784415.jpg" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="https://uploadstatic.mihoyo.com/contentweb/20210721/2021072119142826586.jpg" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="https://uploadstatic.mihoyo.com/contentweb/20210201/2021020114084334134.jpg" />
+                </div>
+            </div>
+        </div>
+        <div thumbsSlider="" class="swiper mySwiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <img src="https://webstatic.mihoyo.com/upload/contentweb/2023/03/08/6945dd91b7461711a9006e794c7a28e6_850712920918882297.png"
+                        width="600px" height="70px">
+                </div>
+                <div class="swiper-slide">
+                    <img src="https://webstatic.mihoyo.com/upload/contentweb/2022/08/12/5cc9e7d9e5b59529f786801c97414e56_8642774847250475530.png"
+                        width="600px" height="70px">
+                </div>
+                <div class="swiper-slide">
+                    <img src="https://uploadstatic.mihoyo.com/contentweb/20220121/2022012116380715763.jpg" width="600px"
+                        height="70px">
+                </div>
+                <div class="swiper-slide">
+                    <img src="https://uploadstatic.mihoyo.com/contentweb/20210721/2021072119143479921.jpg" width="600px"
+                        height="70px">
+                </div>
+                <div class="swiper-slide">
+                    <img src="https://uploadstatic.mihoyo.com/contentweb/20210201/2021020114084526332.jpg" width="600px"
+                        height="70px">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Swiper JS -->
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"> </script>
+
+    <!-- Initialize Swiper -->
+    <script>
+        var swiper = new Swiper(".mySwiper", {
+            spaceBetween: 10,
+            slidesPerView: 4,
+            freeMode: true,
+            watchSlidesProgress: true,
+        });
+        var swiper2 = new Swiper(".mySwiper2", {
+            spaceBetween: 10,
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+            thumbs: {
+                swiper: swiper,
+            },
+        });
+    </script>
+</body>
+
+</html>
