@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>作业</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <style>
+        li{
+            list-style: none;
+            font-size: 300px;
+        }
+        a{
+            text-decoration: none;
+            color: cadetblue;
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li><a href=""></a></li>
+        <li><a href=""></a></li>
+        <li><a href=""></a></li>
+        <li><a href=""></a></li>
+    </ul>
+</body>
+<script>
+    let arr = [
+        {
+            link: "./2.html",
+            title: "1",
+        },
+        {
+            link: "./3.html",
+            title: "2",
+        }
+    ]
+    $(function () {
+        render()
+    })
+    function render() {
+        let html = ""
+        arr.forEach((currentItem) => {
+            html += `<li><a href="${currentItem.link}">${currentItem.title}</a></li>`
+        })
+        $("ul").html(html)
+    }
+</script>
+
+</html>
